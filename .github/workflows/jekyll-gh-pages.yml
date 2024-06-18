@@ -46,9 +46,11 @@ jobs:
         env:
           REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.ANONKEY }}
         run:
-          echo "REACT_APP_SUPABASE_ANON_KEY=${REACT_APP_SUPABASE_ANON_KEY}" >> $GITHUB_ENV
-      - name: install supabase
-        run: npm install @supabase/supabase-js
+          echo "REACT_APP_SUPABASE_ANON_KEY=${REACT_APP_SUPABASE_ANON_KEY}" >> .env
+      - name: install supabase and dotenv
+        run: |
+          npm install @supabase/supabase-js
+          npm install dotenv
 
   # Deployment job
   deploy:
