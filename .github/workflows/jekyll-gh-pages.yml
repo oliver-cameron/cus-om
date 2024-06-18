@@ -39,6 +39,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
       - name: Set up Supabase Connection
+        env:
+          REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.ANONKEY }}
         run: echo "REACT_APP_SUPABASE_ANON_KEY=${{ secrets.ANONKEY }}" >> $GITHUB_ENV
       - name: install supabase
         run: npm install @supabase/supabase-js
