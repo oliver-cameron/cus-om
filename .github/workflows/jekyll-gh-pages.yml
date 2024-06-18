@@ -38,6 +38,10 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+      - name: Use Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
       - name: Set up Supabase Connection
         env:
           REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.ANONKEY }}
