@@ -22,14 +22,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
+      - name: Get Secrets
+        env:
+            GITHUB_TOKEN: ${{ secrets.ANONKEY }}
+          
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    
       # Runs a single command using the runners shell
       - name: install supabase
         run: npm install @supabase/supabase-js
 
       # Runs a set of commands using the runners shell
-      - name: Get Secres
-        env:
-        GITHUB_TOKEN: ${{ secrets.ANONKEY }}
+
