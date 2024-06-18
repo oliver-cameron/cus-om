@@ -27,14 +27,16 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.ANONKEY }}
         run:
-          echo $GITHUB_TOKEN
+
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     
       # Runs a single command using the runners shell
       - name: install supabase
         run: npm install @supabase/supabase-js
-            
+        
+      - name: Set up Supabase Connection
+        run: echo "REACT_APP_SUPABASE_ANON_KEY=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
 

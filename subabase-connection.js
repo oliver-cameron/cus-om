@@ -1,4 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-console.log()
-// Create a single supabase client for interacting with your database
-const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+
+const supabaseUrl = 'https://hgdmkevumhktasvgqpzr.supabase.co'
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
